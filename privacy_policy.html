@@ -14,6 +14,10 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 11 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
+<p><b>Version scope.</b> The optional privacy controls described below apply to
+version 1.0.17 and later. Version 1.0.16 and earlier did not offer separate
+analytics and crash-report controls; their previous behaviour is identified
+below. Updating this page does not add controls to an older installed app.</p>
 
 <p>ThermoWeather (the “app”, “we”) shows weather forecasts and brings together temperature values
 from external BLE sensors and manual entry. The iPhone itself does not measure room-air
@@ -54,26 +58,37 @@ reduce repeated network requests. The operating system may clear this cache;
 it is removed when the app is deleted. We do not receive a copy of it.</p>
 
 <h2>3. Analytics and advertising</h2>
-<p><b>Product analytics.</b> Google Analytics for Firebase processes app interactions,
+<p><b>Product analytics (1.0.17 and later).</b> “Usage analytics” is off by default.
+Only if you enable it, Google Analytics for Firebase processes app interactions,
 session events, app-instance identifiers and technical device information to help us
 understand feature use and improve the app. Reports may be aggregated, but underlying
 events are not necessarily anonymous. Our custom-event filter rejects temperature values,
 body categories, exact coordinates, user notes and sensor names. Weather usage events may
 include the country returned by the weather provider, not forecast coordinates.</p>
-<p><b>Crash diagnostics.</b> Firebase Crashlytics processes crashes and handled errors,
+<p><b>Crash diagnostics (1.0.17 and later).</b> “Crash reports” is a separate,
+off-by-default choice. Only if you enable it, Firebase Crashlytics receives crashes and handled errors,
 stack traces, app and operating-system versions, device information and installation
 identifiers to diagnose failures. Custom diagnostic fields are restricted to technical
 states; we do not intentionally attach readings, coordinates, sensor names, notes, email
 addresses or advertising identifiers. Handled-error messages are sanitised; uncaught
 crash messages can contain runtime error details.</p>
 <p><b>Configuration and experiments.</b> Firebase Remote Config uses installation
-identifiers to deliver configuration values. Experiment assignments and interaction
-events help compare onboarding and subscription experiences. See
+identifiers to deliver configuration values, including onboarding and subscription
+variants. In the current implementation, fetching settings and assigning a variant
+can occur independently of the optional analytics choice. Sending our interaction
+and experiment-exposure events for measurement requires “Usage analytics” in
+1.0.17 and later. Configuration delivery and measuring an experiment are distinct
+purposes; an analytics refusal is not permission to collect experiment events. See
 <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
 <p><b>Subscriptions.</b> Adapty processes subscription and transaction information,
 profile or installation identifiers, paywall interactions and technical device data
-to validate purchases, restore access and analyse subscription performance. Apple
-handles payment details; we do not receive card numbers. See
+to validate purchases, restore access and analyse subscription performance. In
+1.0.17 and later, optional paywall-view logging requires “Usage analytics”.
+Purchase validation, restoration and the service's internal transaction records
+continue without that choice. The app disables Adapty IDFA/GAID and IP-address
+collection options and external analytics integrations; these settings do not
+disable all internal subscription processing. Apple handles payment details;
+we do not receive card numbers. See
 <a href="https://adapty.io/end-users-privacy/">Adapty End-Users Privacy Policy</a>.</p>
 <p><b>Advertising.</b> Google AdMob may process IP-derived approximate location,
 device identifiers, ad interactions and diagnostics to serve and measure ads and prevent
@@ -81,15 +96,29 @@ fraud. Personalisation depends on your choices and applicable requirements. Wher
 required, Google UMP presents advertising privacy choices; requests are gated on its
 permission to request ads. If you decline personalisation, limited or non-personalised
 ads may still involve data processing, or ads may be unavailable. Tracking permission
-is requested through Apple's App Tracking Transparency prompt. Plus removes in-app ads;
-it does not disable subscription processing, analytics or diagnostics. See
+is requested through Apple's App Tracking Transparency prompt. Plus removes in-app ads.
+Subscription processing continues; optional analytics and diagnostics follow your
+separate choices in 1.0.17 and later. Advertising choices and ATT do not grant
+permission for these optional streams. See
 <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
 <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">AdMob data disclosures</a>.</p>
 
 <h2>4. Legal bases (GDPR)</h2>
-<p>Contract performance for core features (Art. 6(1)(b)); legitimate interest for crash/usage
-statistics (Art. 6(1)(f)); consent for personalised advertising and tracking (Art. 6(1)(a)),
-withdrawable at any time.</p>
+<p>For 1.0.17 and later, we rely on your consent (Art. 6(1)(a)) for optional
+usage analytics and crash-report sharing. You can decline or withdraw each
+choice independently, without losing app features or Plus. We do not switch
+these optional streams to “legitimate interests” when you decline.</p>
+<p>Core features you request, such as forecasts and purchase validation, rely
+on contract performance where applicable (Art. 6(1)(b)); required billing and
+record-keeping may rely on legal obligations (Art. 6(1)(c)). Advertising and
+tracking use separate consent where required. Delivering configuration does
+not by itself establish that participation in an A/B experiment is necessary
+to provide the app.</p>
+<p><b>Earlier versions.</b> In 1.0.16 and earlier, analytics services initialised
+at startup and release builds enabled crash reporting without separate in-app
+switches. The earlier notice described crash/usage statistics under legitimate
+interests (Art. 6(1)(f)). The new choices do not apply retroactively; you can
+contact us about earlier processing using the rights described in section 6.</p>
 
 <h2>5. Retention and deletion</h2>
 <p><b>On your device.</b> Microphone samples are discarded after analysis. Manual
@@ -126,10 +155,17 @@ information when it is no longer needed for those purposes.</p>
 the provider requires that option. Tracking permission can be changed in iOS Settings →
 Privacy &amp; Security → Tracking. Location, microphone and Bluetooth permissions can be
 revoked in iOS Settings. You can choose a city manually without location permission.</p>
-<p>Advertising choices and ATT do not switch off all analytics or diagnostics.
-In the current app, analytics and subscription services initialise at startup and
-release builds enable crash reporting. There is no separate in-app analytics switch.
-You may object to processing or request access, correction, restriction, portability
+<p>In 1.0.17 and later, open Settings → Privacy → “Your privacy choices” to change
+“Usage analytics” and “Crash reports”. Both start off; “Continue without sharing”
+leaves them off. The initial choice also applies after updating from an older
+version if you have not yet made a choice. The app and Plus work when you decline.</p>
+<p>Turning a choice off stops future optional sharing. Events that occur while
+usage analytics is off are not saved by the app for later replay. Withdrawal
+does not automatically erase information already received by providers; their
+retention rules in section 5 and deletion-request rights still apply. It does
+not cancel a subscription or stop core weather, map, configuration and purchase
+requests. Advertising choices and iOS permissions are managed separately.</p>
+<p>You may object to processing or request access, correction, restriction, portability
 or deletion, where applicable, by emailing
 <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a>. Withdrawal does not
 affect processing that was lawful before withdrawal.</p>
