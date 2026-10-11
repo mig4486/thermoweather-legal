@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ThermoWeather Privacy Policy for the ThermoWeather iOS app.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>ThermoWeather Privacy Policy</title>
+<link rel="canonical" href="https://mig4486.github.io/thermoweather-legal/privacy_policy.html">
+<style>*{box-sizing:border-box}html{color-scheme:light dark}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:800px;margin:0 auto;padding:24px 20px 48px;line-height:1.65;font-size:17px;color:#17243a;background:#f8fafc;overflow-wrap:anywhere}header,footer{font-size:15px}header{border-bottom:1px solid #cbd5e1;padding-bottom:18px}nav{display:flex;flex-wrap:wrap;gap:12px 24px}a{color:#075d92;text-underline-offset:3px}a:focus-visible{outline:3px solid #075d92;outline-offset:4px}h1{font-size:clamp(26px,6vw,36px);line-height:1.2;margin-top:32px}h2{font-size:22px;line-height:1.3;margin-top:32px}h3{font-size:19px}.meta{font-size:15px;color:#526177}.warn{padding:16px;border-left:4px solid #a66b00;background:#fff4d6;margin:24px 0}footer{border-top:1px solid #cbd5e1;margin-top:36px;padding-top:20px;color:#526177}li{margin:12px 0}@media(prefers-color-scheme:dark){body{background:#0b1220;color:#f4f7fb}a{color:#7fd4ff}.meta,footer{color:#aab8ca}header,footer{border-color:#38485f}.warn{background:#302b22;border-color:#ffc24b}a:focus-visible{outline-color:#7fd4ff}}@media print{body{max-width:none;background:#fff;color:#000;font-size:11pt}header,footer{display:none}a{color:inherit}h2{break-after:avoid}}</style>
+</head>
+<body>
+<header><nav aria-label="Legal documents"><a href="./">ThermoWeather</a><a href="privacy_policy.html">Privacy Policy</a><a href="terms_of_use.html">Terms of Use</a></nav></header>
+<main>
+<h1>ThermoWeather Privacy Policy</h1>
+<p class="meta">Effective 11 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
+
+<p>ThermoWeather (the “app”, “we”) shows weather forecasts and brings together temperature values
+from external BLE sensors and manual entry. The iPhone itself does not measure room-air
+or body temperature in degrees, and the app is not a medical device. The app is designed to collect
+as little as possible and to keep the most sensitive data on your device entirely.</p>
+
+<h2>1. Data that never leaves your device</h2>
+<p><b>Microphone recordings.</b> The acoustic thermometer plays a short chirp and records its
+reflection. The recording is analysed on-device and discarded immediately; it is never uploaded or
+shared. The microphone is used only when you explicitly start a measurement.</p>
+<p><b>Manual body-temperature values.</b> If you enter body temperature manually, the value is handled
+only in current-session memory. It is not written to the app’s local database or app-container backup
+and is never sent to our servers, Firebase Analytics, Google AdMob, Adapty, or any other third party.</p>
+<p><b>Local ambient-temperature log.</b> External Bluetooth sensor readings and manual room-air
+entries are stored locally. A manual body-temperature entry remains available only until the app is
+closed. We operate no user-measurement servers and cannot see these
+values.</p>
+
+<h2>2. Data shared with services</h2>
+<p><b>Location.</b> With your permission, coordinates (coarsened to forecast-level precision) are
+sent to WeatherAPI.com to fetch your local forecast. We keep no movement history. You may pick a
+city manually instead, in which case no location access is needed.</p>
+<p><b>Forecast and weather map.</b> WeatherAPI.com receives the forecast coordinates
+or selected city, weather request parameters and IP address. For weather map layers
+(precipitation, temperature, wind and pressure), WeatherAPI Maps receives tile
+indices, zoom level, selected layer and forecast hour, IP address and technical
+request headers. Tile indices identify the area being viewed. See the
+<a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI.com Privacy Policy</a>.</p>
+<p><b>Base map.</b> When you open or pan the map, the app requests images directly
+from OpenStreetMap Foundation servers. These requests disclose the IP address,
+tile indices and zoom level (the viewed area), and technical headers including
+the app name. They do not contain sensor readings or your temperature log.
+Denying location access does not hide the IP address or viewed area from map
+providers. See the
+<a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation Privacy Policy</a>.</p>
+<p><b>Map cache.</b> Viewed tiles are stored in the device's cache directory to
+reduce repeated network requests. The operating system may clear this cache;
+it is removed when the app is deleted. We do not receive a copy of it.</p>
+
+<h2>3. Analytics and advertising</h2>
+<p><b>Product analytics.</b> Google Analytics for Firebase processes app interactions,
+session events, app-instance identifiers and technical device information to help us
+understand feature use and improve the app. Reports may be aggregated, but underlying
+events are not necessarily anonymous. Our custom-event filter rejects temperature values,
+body categories, exact coordinates, user notes and sensor names. Weather usage events may
+include the country returned by the weather provider, not forecast coordinates.</p>
+<p><b>Crash diagnostics.</b> Firebase Crashlytics processes crashes and handled errors,
+stack traces, app and operating-system versions, device information and installation
+identifiers to diagnose failures. Custom diagnostic fields are restricted to technical
+states; we do not intentionally attach readings, coordinates, sensor names, notes, email
+addresses or advertising identifiers. Handled-error messages are sanitised; uncaught
+crash messages can contain runtime error details.</p>
+<p><b>Configuration and experiments.</b> Firebase Remote Config uses installation
+identifiers to deliver configuration values. Experiment assignments and interaction
+events help compare onboarding and subscription experiences. See
+<a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+<p><b>Subscriptions.</b> Adapty processes subscription and transaction information,
+profile or installation identifiers, paywall interactions and technical device data
+to validate purchases, restore access and analyse subscription performance. Apple
+handles payment details; we do not receive card numbers. See
+<a href="https://adapty.io/end-users-privacy/">Adapty End-Users Privacy Policy</a>.</p>
+<p><b>Advertising.</b> Google AdMob may process IP-derived approximate location,
+device identifiers, ad interactions and diagnostics to serve and measure ads and prevent
+fraud. Personalisation depends on your choices and applicable requirements. Where
+required, Google UMP presents advertising privacy choices; requests are gated on its
+permission to request ads. If you decline personalisation, limited or non-personalised
+ads may still involve data processing, or ads may be unavailable. Tracking permission
+is requested through Apple's App Tracking Transparency prompt. Plus removes in-app ads;
+it does not disable subscription processing, analytics or diagnostics. See
+<a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
+<a href="https://developers.google.com/admob/ios/privacy/data-disclosure">AdMob data disclosures</a>.</p>
+
+<h2>4. Legal bases (GDPR)</h2>
+<p>Contract performance for core features (Art. 6(1)(b)); legitimate interest for crash/usage
+statistics (Art. 6(1)(f)); consent for personalised advertising and tracking (Art. 6(1)(a)),
+withdrawable at any time.</p>
+
+<h2>5. Retention and deletion</h2>
+<p><b>On your device.</b> Microphone samples are discarded after analysis. Manual
+body-temperature values last only for the current session. Ambient readings remain
+until you delete them or delete the app. App deletion removes its local data and cache;
+offloading the app may preserve data, and operating-system backups are managed through
+your Apple settings.</p>
+<p><b>Analytics and configuration.</b> Identifiable event and user data are subject
+to the Google Analytics property's retention settings; expiration and any reset on new
+activity follow those settings. Aggregated reporting can be retained separately. See
+<a href="https://support.google.com/analytics/answer/7667196">Google Analytics retention controls</a>.
+Remote Config installation identifiers remain until deletion is requested; Firebase
+describes removal from live and backup systems within 180 days after that request.</p>
+<p><b>Crash reports.</b> Firebase states that crash traces and associated identifiers
+are retained for 90 days before removal from live and backup systems begins. This is
+not a promise that all backup copies disappear on day 90.</p>
+<p><b>Subscription records.</b> Records are retained as needed to validate and restore
+entitlements, resolve billing disputes, prevent fraud and meet legal obligations.
+Adapty retention follows our service terms and applicable law; eligible data can be
+deleted on our instruction. Deleting app data does not cancel your Apple subscription
+or erase purchase records that Apple must retain.</p>
+<p><b>Advertising and provider logs.</b> Google advertising data and weather/map
+request logs follow the providers' retention policies, including service operation,
+security and legal needs. See
+<a href="https://policies.google.com/technologies/retention">Google retention information</a>
+and the WeatherAPI and OpenStreetMap policies linked above. We do not control independent
+provider logs or promise their immediate removal when the app is uninstalled.</p>
+<p><b>Support correspondence.</b> We retain messages for handling your request and any
+related follow-up, dispute or legal obligation. We delete or anonymise identifiable
+information when it is no longer needed for those purposes.</p>
+
+<h2>6. Your choices and rights</h2>
+<p>Advertising choices can be reopened in app Settings → “Privacy settings” when
+the provider requires that option. Tracking permission can be changed in iOS Settings →
+Privacy &amp; Security → Tracking. Location, microphone and Bluetooth permissions can be
+revoked in iOS Settings. You can choose a city manually without location permission.</p>
+<p>Advertising choices and ATT do not switch off all analytics or diagnostics.
+In the current app, analytics and subscription services initialise at startup and
+release builds enable crash reporting. There is no separate in-app analytics switch.
+You may object to processing or request access, correction, restriction, portability
+or deletion, where applicable, by emailing
+<a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a>. Withdrawal does not
+affect processing that was lawful before withdrawal.</p>
+<p>We respond within one month, subject to lawful extensions, and explain any request
+we cannot fulfil. We may need limited information to locate an app installation or
+purchase; do not send passwords, card details or health readings. We do not require
+you to create an account to submit a request. Where possible, we instruct our processors
+to delete identified records and explain any legal retention exceptions. Uninstalling
+alone does not submit such a request. You may also complain to your local data protection
+authority.</p>
+
+<h2>7. Protection and international processing</h2>
+<p>We require third parties receiving personal data through our app to protect it
+at least as strongly as this policy and Apple's applicable privacy requirements.
+Providers acting on our behalf must limit processing to authorised purposes and apply
+appropriate confidentiality and security measures. We remain responsible for selecting
+and configuring the services used by our app; linking a provider policy does not waive
+that responsibility.</p>
+<p>Services may process data outside your country. Where required, international
+transfers must use recognised safeguards, such as an adequacy decision or standard
+contractual clauses. Provider policies describe their locations and safeguards.
+Connections to the listed services use HTTPS; no method of storage or transmission
+can be guaranteed completely secure.</p>
+<p>These legal pages are hosted on GitHub Pages. Opening them sends a web request
+to GitHub, which processes technical information such as your IP address to operate
+and secure its service. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.
+We do not add analytics, advertising, cookies or third-party scripts to these pages.
+Copies viewed on Google Drive are served by Google under its privacy policy.
+No account or app installation is required to read these web pages.</p>
+
+<h2>8. Children</h2>
+<p>The app is not directed at children under 13 and we do not knowingly collect their data.</p>
+
+<h2>9. Changes and contact</h2>
+<p>Material changes update the date above and, where appropriate, are announced in the app.</p>
+<p>Privacy contact and developer: tgstartup,
+<a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a>.</p>
+</main>
+<footer>ThermoWeather · Developer: tgstartup · <a href="mailto:tgstartup@icloud.com">Contact support</a></footer>
+</body>
+</html>
