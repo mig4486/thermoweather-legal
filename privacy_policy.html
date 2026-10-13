@@ -14,6 +14,7 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 12 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
+<p class="meta">Last updated 13 October 2026</p>
 <p><b>Version scope.</b> The optional privacy controls described below apply to
 version 1.0.17 and later. Version 1.0.16 and earlier did not offer separate
 analytics and crash-report controls; their previous behaviour is identified
@@ -46,6 +47,37 @@ or selected city, weather request parameters and IP address. For weather map lay
 indices, zoom level, selected layer and forecast hour, IP address and technical
 request headers. Tile indices identify the area being viewed. See the
 <a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI.com Privacy Policy</a>.</p>
+<p><b>Geomagnetic activity.</b> When you open the geomagnetic activity screen,
+the app requests the global planetary Kp index from NOAA Space Weather Prediction
+Center. Requests disclose your IP address and technical request headers to NOAA;
+they do not include your location, sensor readings or room measurements. The app
+caches the response locally. See the
+<a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
+<p><b>U.S. official warnings.</b> When the selected place is in the United States
+or a U.S. territory, the app requests active warnings for that place from the
+U.S. National Weather Service (api.weather.gov, part of NOAA). The request
+contains the place's coordinates rounded to 0.01° (about 1 km, because
+warnings are issued per county or zone), your IP address and technical request
+headers including the app's contact address; it does not include sensor
+readings or room measurements. Places outside the U.S. are never sent. The app
+caches the response locally. See the
+<a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
+<p><b>Regional cyclone and tsunami bulletins.</b> When you open these source
+screens, the app requests the current tropical cyclone summary from NOAA NHC/CPHC
+and the latest public CAP bulletin from the selected NOAA tsunami warning center
+(NTWC or PTWC). These requests disclose your IP address and technical request
+headers, but do not include your location, sensor readings or room measurements.
+Responses are cached locally. The sources have regional coverage; their records
+are not a determination of danger at your selected place. Opening an official
+bulletin link also makes a request to that source. See the
+<a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
+<p><b>Earthquakes.</b> When you open the Observations tab of the hazards screen,
+the app requests recent earthquakes near the selected place from the U.S.
+Geological Survey (USGS). The request contains that place's coordinates rounded
+to 0.1° (about 11 km), plus your IP address and technical request headers; it
+does not include sensor readings or room measurements. The app caches the
+response locally. See the
+<a href="https://www.usgs.gov/privacy-policies">USGS privacy policy</a>.</p>
 <p><b>Base map.</b> When you open or pan the map, the app requests images directly
 from OpenStreetMap Foundation servers. These requests disclose the IP address,
 tile indices and zoom level (the viewed area), and technical headers including
