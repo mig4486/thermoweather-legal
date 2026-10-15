@@ -14,7 +14,7 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 12 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
-<p class="meta">Last updated 13 October 2026</p>
+<p class="meta">Last updated 14 October 2026</p>
 <p><b>Version scope.</b> The optional privacy controls described below apply to
 version 1.0.17 and later. Version 1.0.16 and earlier did not offer separate
 analytics and crash-report controls; their previous behaviour is identified
@@ -63,20 +63,30 @@ readings or room measurements. Places outside the U.S. are never sent. The app
 caches the response locally. See the
 <a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
 <p><b>Regional cyclone and tsunami bulletins.</b> When you open these source
-screens, the app requests the current tropical cyclone summary from NOAA NHC/CPHC
-and the latest public CAP bulletin from the selected NOAA tsunami warning center
-(NTWC or PTWC). These requests disclose your IP address and technical request
+screens or select the corresponding event layer on the map, the app requests
+the current tropical cyclone summary from NOAA NHC/CPHC
+and public CAP bulletins from NOAA tsunami warning centers (NTWC or PTWC).
+The warnings map checks both centers. These requests disclose your IP address and technical request
 headers, but do not include your location, sensor readings or room measurements.
-Responses are cached locally. The sources have regional coverage; their records
+The cyclone map also downloads the official forecast cone and track files
+(KMZ/KML) from www.nhc.noaa.gov, using links in the cyclone summary. These
+requests likewise disclose IP addresses and technical headers, but do not
+contain the selected place's coordinates or indoor measurements.
+Responses and forecast graphics are cached locally. The sources have regional coverage; their records
 are not a determination of danger at your selected place. Opening an official
 bulletin link also makes a request to that source. See the
 <a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
-<p><b>Earthquakes.</b> When you open the Observations tab of the hazards screen,
+<p><b>Earthquakes.</b> When you open the Observations tab of the hazards screen
+or select the earthquake layer on the map,
 the app requests recent earthquakes near the selected place from the U.S.
 Geological Survey (USGS). The request contains that place's coordinates rounded
 to 0.1° (about 11 km), plus your IP address and technical request headers; it
-does not include sensor readings or room measurements. The app caches the
-response locally. See the
+does not include sensor readings or room measurements. While the earthquake
+layer is shown, the app also requests earthquakes in the part of the map you
+are viewing; that request contains the edges of the visible area rounded
+outward to a grid of 1° to 15°, not your location. The app stores the
+response for the selected place on the device; responses for map areas are
+kept only in memory while the app is running. See the
 <a href="https://www.usgs.gov/privacy-policies">USGS privacy policy</a>.</p>
 <p><b>Base map.</b> When you open or pan the map, the app requests images directly
 from OpenStreetMap Foundation servers. These requests disclose the IP address,
