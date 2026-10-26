@@ -14,28 +14,61 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 12 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
-<p class="meta">Last updated 14 October 2026</p>
-<p><b>Version scope.</b> The optional privacy controls described below apply to
-version 1.0.17 and later. Version 1.0.16 and earlier did not offer separate
-analytics and crash-report controls; their previous behaviour is identified
-below. Updating this page does not add controls to an older installed app.</p>
+<p class="meta">Last updated 26 October 2026</p>
+<p><b>Version scope.</b> Optional usage-analytics and crash-report choices apply to
+version 1.0.17 and later. The expanded configuration, aurora map, speech and sharing
+features described here apply to version 1.0.18 builds that include them; availability
+also depends on device, region, permissions, data coverage and subscription access.
+Earlier installed builds may behave differently, as explained below. This update to
+the notice does not install an app update or enable a feature on your device.</p>
 
 <p>ThermoWeather (the “app”, “we”) shows weather forecasts and brings together temperature values
 from external BLE sensors and manual entry. The iPhone itself does not measure room-air
 or body temperature in degrees, and the app is not a medical device. The app is designed to collect
-as little as possible and to keep the most sensitive data on your device entirely.</p>
+as little as possible and to process measurements on your device unless you deliberately export a supported result.</p>
 
-<h2>1. Data that never leaves your device</h2>
+<h2>1. Measurements and processing on your device</h2>
 <p><b>Microphone recordings.</b> The acoustic thermometer plays a short chirp and records its
-reflection. The recording is analysed on-device and discarded immediately; it is never uploaded or
-shared. The microphone is used only when you explicitly start a measurement.</p>
+reflection. Audio samples are analysed on-device and discarded after the attempt; the app does not upload or include them in result sharing. The microphone is used only when you explicitly start a measurement.</p>
 <p><b>Manual body-temperature values.</b> If you enter body temperature manually, the value is handled
 only in current-session memory. It is not written to the app’s local database or app-container backup
 and is never sent to our servers, Firebase Analytics, Google AdMob, Adapty, or any other third party.</p>
 <p><b>Local ambient-temperature log.</b> External Bluetooth sensor readings and manual room-air
 entries are stored locally. A manual body-temperature entry remains available only until the app is
-closed. We operate no user-measurement servers and cannot see these
-values.</p>
+closed. Saved acoustic estimates can include local quality information such as measurement time,
+uncertainty, sample counts, entered geometry and humidity assumptions. The acoustic
+calculation uses humidity you explicitly enter, or a disclosed assumption if none is
+entered; it does not substitute outdoor humidity for room humidity. We operate no
+server for storing your measurement history and do not automatically receive it.</p>
+
+<p><b>Recommendations and lunar calendar.</b> Calculations for comfort, moisture,
+ventilation and drying combine available local readings and forecast data on the device.
+Room values are not added to weather-provider requests. Lunar calculations, selected
+dates and reminder settings are handled locally; weather for the selected place is
+requested separately where needed.</p>
+<p><b>Weather speech.</b> When you tap the speaker button, the app builds a short
+summary from the displayed weather and passes that text to the device's system
+text-to-speech engine. It does not record your voice or send the summary to a
+developer-operated speech service. Voice availability and any system voice downloads
+or processing follow the operating system's settings and privacy terms. Speech does
+not start automatically.</p>
+<p><b>Sharing a result.</b> In builds with sharing, you can preview and export a
+supported saved indoor reading, a daily forecast, or a drying/ventilation window as
+an image or copy its text. A card may contain the selected city's name, date and time,
+temperature, humidity, units, source and recommendation. Sensor names, notes, record
+identifiers, exact coordinates and body-temperature values are excluded from these
+card templates. Creating a preview does not upload it to us. Opening the system share
+menu passes the selected card and text to the operating system and, if you choose one,
+a receiving app or service; copying puts text on the system clipboard. Your chosen
+recipient, service, clipboard settings or account synchronization may store or send
+that content under their own terms. Review the preview before sharing. We do not
+receive the recipient or a delivery confirmation.</p>
+<p><b>Reminders.</b> With notification permission, the app schedules local reminders
+for supported functions such as ventilation, drying and lunar events. Timing and
+navigation information, including an internal room/reading reference where needed,
+are given to the operating system. Content may appear on the lock screen or connected
+devices according to your system settings. Sharing a card does not schedule a reminder
+or start a timer for the recipient.</p>
 
 <h2>2. Data shared with services</h2>
 <p><b>Location.</b> With your permission, coordinates (coarsened to forecast-level precision) are
@@ -43,7 +76,7 @@ sent to WeatherAPI.com to fetch your local forecast. We keep no movement history
 city manually instead, in which case no location access is needed.</p>
 <p><b>Forecast and weather map.</b> WeatherAPI.com receives the forecast coordinates
 or selected city, weather request parameters and IP address. For weather map layers
-(precipitation, temperature, wind and pressure), WeatherAPI Maps receives tile
+(such as clouds, precipitation, temperature, wind and pressure), WeatherAPI Maps receives tile
 indices, zoom level, selected layer and forecast hour, IP address and technical
 request headers. Tile indices identify the area being viewed. See the
 <a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI.com Privacy Policy</a>.</p>
@@ -52,6 +85,17 @@ the app requests the global planetary Kp index from NOAA Space Weather Predictio
 Center. Requests disclose your IP address and technical request headers to NOAA;
 they do not include your location, sensor readings or room measurements. The app
 caches the response locally. See the
+<a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
+<p><b>Northern lights and aurora map.</b> The app obtains global aurora and
+space-weather data from NOAA SWPC. In builds using MapMap, it requests global
+space-weather metadata and an aurora probability image from api.mapmap.ai using
+our application API credential. These global requests disclose your IP address,
+technical request metadata and use of our API credential to the receiving service;
+they do not include your selected city's coordinates, room readings or sensor names.
+OpenStreetMap provides the base map and receives tile requests for the viewed area,
+as explained below. The app evaluates local viewing conditions using the selected
+place and available weather on your device. See the
+<a href="https://mapmap.ai/privacy">MapMap Privacy Policy</a> and
 <a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
 <p><b>U.S. official warnings.</b> When the selected place is in the United States
 or a U.S. territory, the app requests active warnings for that place from the
@@ -107,6 +151,13 @@ understand feature use and improve the app. Reports may be aggregated, but under
 events are not necessarily anonymous. Our custom-event filter rejects temperature values,
 body categories, exact coordinates, user notes and sensor names. Weather usage events may
 include the country returned by the weather provider, not forecast coordinates.</p>
+<p>With usage analytics enabled, subscription-funnel events also include the
+observed onboarding variant, its first observed light/dark appearance, the current
+appearance, and the subscription-screen trigger and outcome. Events for features such as sharing, speech and measurement attempts record bounded action/state categories, not the result content, city name, spoken text, audio or recipient. We store this bounded
+origin on the device to keep it consistent across app restarts and purchase results.
+It is cleared when usage analytics is withdrawn. Events before consent are not
+reconstructed, and restoring an existing subscription is distinguished from a new
+purchase. These fields contain no new user or transaction identifier.</p>
 <p><b>Crash diagnostics (1.0.17 and later).</b> “Crash reports” is a separate,
 off-by-default choice. Only if you enable it, Firebase Crashlytics receives crashes and handled errors,
 stack traces, app and operating-system versions, device information and installation
@@ -116,12 +167,43 @@ addresses or advertising identifiers. Handled-error messages are sanitised; unca
 crash messages can contain runtime error details.</p>
 <p><b>Configuration and experiments.</b> Firebase Remote Config uses installation
 identifiers to deliver configuration values, including onboarding and subscription
-variants. In the current implementation, fetching settings and assigning a variant
-can occur independently of the optional analytics choice. Sending our interaction
-and experiment-exposure events for measurement requires “Usage analytics” in
-1.0.17 and later. Configuration delivery and measuring an experiment are distinct
-purposes; an analytics refusal is not permission to collect experiment events. See
-<a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+variants. In version 1.0.18 builds with the updated configuration flow, the app starts its measurement-related Remote
+Config fetch and saves a new experiment assignment only after “Usage analytics”
+is enabled and collection is ready. A previously saved assignment remains on the
+device if you withdraw consent; it is not a new measurement event or permission
+to send one. Operational rollback settings described below can return the usual
+behaviour without changing that saved group. Firebase components may initialise
+and read stored configuration when the app starts; this is distinct from our
+optional event collection and is not a promise that all SDK activity is absent.
+See <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+<p><b>Earlier 1.0.17 builds.</b> Fetching Remote Config and saving a variant could
+occur independently of the optional analytics choice. Sending our interaction
+and experiment-exposure events required “Usage analytics”. These earlier
+configuration rules remain relevant to installed builds until they are updated.</p>
+<p><b>Operational rollback settings (updated builds).</b> The app checks a small,
+public JSON file hosted on GitHub Pages when it starts or returns to the foreground,
+with at least an hour between attempts. This is the same operational configuration
+for everyone: it lets us return onboarding and subscription-screen experiments to
+the usual behaviour. The request does not contain your location, measurements,
+analytics choice, account or installation identifiers, or app-interaction events.
+It does disclose your IP address and ordinary HTTP metadata to the hosting provider.
+GitHub states that Pages visitor IP addresses are logged and stored for security.
+These requests operate independently of optional analytics; they are not a periodic
+background refresh. This channel does not grant permission for analytics or
+personalise advertisements. See
+<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data collection</a>
+and the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+<p><b>Initial appearance configuration (updated builds).</b> The app also reads
+a small public JSON configuration from GitHub Raw at startup. On a new
+installation it can set the initial light, dark or system appearance before
+the first screen; if it is unavailable, the built-in initial appearance is light.
+Your saved appearance choice is kept. This is uniform functional configuration,
+not an assignment to an analytics experiment or evidence of App Store campaign attribution. There is at most one request per
+app process, without background polling or a retry caused by analytics consent.
+The request contains no location, measurements, account, installation or advertising
+identifier, analytics choice or interaction events. GitHub receives your IP address
+and ordinary HTTP metadata. This request operates independently of optional
+analytics. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
 <p><b>Subscriptions.</b> Adapty processes subscription and transaction information,
 profile or installation identifiers, paywall interactions and technical device data
 to validate purchases, restore access and analyse subscription performance. In
@@ -145,6 +227,15 @@ permission for these optional streams. See
 <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
 <a href="https://developers.google.com/admob/ios/privacy/data-disclosure">AdMob data disclosures</a>.</p>
 
+<p><b>Diagnostic test builds.</b> Builds explicitly configured for QA can offer a
+local, user-started diagnostic journal independently of optional Firebase collection.
+It records bounded technical actions, timing, errors, scenario/appearance and a random
+local run identifier, not microphone audio, readings, notes, city names, coordinates,
+API keys or raw request bodies. It is not enabled in ordinary production builds.
+An exported report is shared only through an explicit user action; if you send it
+to support, we process it as support correspondence. QA analytics is labelled as
+test traffic and separated from production reporting.</p>
+
 <h2>4. Legal bases (GDPR)</h2>
 <p>For 1.0.17 and later, we rely on your consent (Art. 6(1)(a)) for optional
 usage analytics and crash-report sharing. You can decline or withdraw each
@@ -164,16 +255,31 @@ contact us about earlier processing using the rights described in section 6.</p>
 
 <h2>5. Retention and deletion</h2>
 <p><b>On your device.</b> Microphone samples are discarded after analysis. Manual
-body-temperature values last only for the current session. Ambient readings remain
-until you delete them or delete the app. App deletion removes its local data and cache;
+body-temperature values last only for the current session. Ambient history is limited to the most recent 500 stored readings and remains
+until removed by that limit, by you, or by app deletion. Local preferences, saved
+places and forecast caches can remain between launches; caches can be refreshed
+or cleared by the app or operating system. App deletion removes its local data and cache;
 offloading the app may preserve data, and operating-system backups are managed through
 your Apple settings.</p>
+<p><b>Exports and diagnostic files.</b> Share images are temporary local cache
+files. When a later image export is prepared, inactive files older than 24 hours
+are eligible for cleanup; files still in use by the share operation are retained
+until it completes. This is not a guarantee of deletion exactly 24 hours after
+creation. QA journals keep up to three reports, with reports older than 24 hours
+cleaned up when diagnostics next initializes. The operating system may clear cache
+files earlier. Copies saved or sent to another app, clipboard, backup or recipient
+are outside this local cleanup.</p>
 <p><b>Analytics and configuration.</b> Identifiable event and user data are subject
 to the Google Analytics property's retention settings; expiration and any reset on new
 activity follow those settings. Aggregated reporting can be retained separately. See
 <a href="https://support.google.com/analytics/answer/7667196">Google Analytics retention controls</a>.
 Remote Config installation identifiers remain until deletion is requested; Firebase
 describes removal from live and backup systems within 180 days after that request.</p>
+<p><b>Operational configuration.</b> The app keeps the accepted rollback flags,
+revision and last attempt time locally between launches. A network failure does
+not discard an accepted rollback; a newer valid configuration can change it.
+GitHub's security logs follow its retention policy; we do not promise their
+immediate deletion when the app is uninstalled or analytics is turned off.</p>
 <p><b>Crash reports.</b> Firebase states that crash traces and associated identifiers
 are retained for 90 days before removal from live and backup systems begins. This is
 not a promise that all backup copies disappear on day 90.</p>
@@ -186,7 +292,7 @@ or erase purchase records that Apple must retain.</p>
 request logs follow the providers' retention policies, including service operation,
 security and legal needs. See
 <a href="https://policies.google.com/technologies/retention">Google retention information</a>
-and the WeatherAPI and OpenStreetMap policies linked above. We do not control independent
+and the WeatherAPI, MapMap, OpenStreetMap and official-source policies linked above. We do not control independent
 provider logs or promise their immediate removal when the app is uninstalled.</p>
 <p><b>Support correspondence.</b> We retain messages for handling your request and any
 related follow-up, dispute or legal obligation. We delete or anonymise identifiable
@@ -198,9 +304,17 @@ the provider requires that option. Tracking permission can be changed in iOS Set
 Privacy &amp; Security → Tracking. Location, microphone and Bluetooth permissions can be
 revoked in iOS Settings. You can choose a city manually without location permission.</p>
 <p>In 1.0.17 and later, open Settings → Privacy → “Your privacy choices” to change
-“Usage analytics” and “Crash reports”. Both start off; “Continue without sharing”
-leaves them off. The initial choice also applies after updating from an older
+“Usage analytics” and “Crash reports”. Both are off until you allow them; choosing
+to continue without optional sharing leaves them off. The initial choice also applies after updating from an older
 version if you have not yet made a choice. The app and Plus work when you decline.</p>
+<p><b>Choice presentation in updated builds.</b> New installations receive a
+compact choice at the start of onboarding: “Allow both and continue”, “Continue
+without sharing” or “Customize”. Custom settings let you choose analytics and
+crash reports independently; merely opening or closing them grants nothing.
+Already completed onboarding is not repeated. If an older installation has no
+saved choice, a dismissible invitation on the home screen links to settings;
+dismissing it does not enable either optional stream. Existing saved choices
+are preserved.</p>
 <p>Turning a choice off stops future optional sharing. Events that occur while
 usage analytics is off are not saved by the app for later replay. Withdrawal
 does not automatically erase information already received by providers; their
@@ -231,7 +345,9 @@ transfers must use recognised safeguards, such as an adequacy decision or standa
 contractual clauses. Provider policies describe their locations and safeguards.
 Connections to the listed services use HTTPS; no method of storage or transmission
 can be guaranteed completely secure.</p>
-<p>These legal pages are hosted on GitHub Pages. Opening them sends a web request
+<p>These legal pages and the operational rollback JSON used by updated builds
+are hosted on GitHub Pages; initial appearance configuration is hosted on GitHub Raw.
+Opening a page or requesting either JSON sends a web request
 to GitHub, which processes technical information such as your IP address to operate
 and secure its service. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.
 We do not add analytics, advertising, cookies or third-party scripts to these pages.
