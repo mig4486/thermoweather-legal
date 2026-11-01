@@ -14,11 +14,13 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 12 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
-<p class="meta">Last updated 26 October 2026</p>
+<p class="meta">Last updated 2 November 2026</p>
 <p><b>Version scope.</b> Optional usage-analytics and crash-report choices apply to
 version 1.0.17 and later. The expanded configuration, aurora map, speech and sharing
 features described here apply to version 1.0.18 builds that include them; availability
 also depends on device, region, permissions, data coverage and subscription access.
+Version 1.0.19 adds the Best Time widget, the airing timer Live Activity,
+selected-day forecast speech and Moon observation windows.
 Earlier installed builds may behave differently, as explained below. This update to
 the notice does not install an app update or enable a feature on your device.</p>
 
@@ -38,23 +40,40 @@ entries are stored locally. A manual body-temperature entry remains available on
 closed. Saved acoustic estimates can include local quality information such as measurement time,
 uncertainty, sample counts, entered geometry and humidity assumptions. The acoustic
 calculation uses humidity you explicitly enter, or a disclosed assumption if none is
-entered; it does not substitute outdoor humidity for room humidity. We operate no
-server for storing your measurement history and do not automatically receive it.</p>
+entered; it does not substitute outdoor humidity for room humidity. A saved acoustic setup can retain calibration parameters and the room geometry
+you entered in local app preferences. You can reset the calibration in the app.
+We operate no server for storing your measurement history and do not automatically receive it.</p>
 
 <p><b>Recommendations and lunar calendar.</b> Calculations for comfort, moisture,
 ventilation and drying combine available local readings and forecast data on the device.
 Room values are not added to weather-provider requests. Lunar calculations, selected
 dates and reminder settings are handled locally; weather for the selected place is
 requested separately where needed.</p>
-<p><b>Weather speech.</b> When you tap the speaker button, the app builds a short
-summary from the displayed weather and passes that text to the device's system
+<p><b>Best Time widget (1.0.19).</b> To show times for airing a room, drying laundry
+or observing the Moon, the app saves a display summary in a local container
+shared with its iOS widget. It can include the place name, time window, status,
+reason, language and update time. A local token opens the matching view in the
+app. The widget reads this file on your device. The shared file omits exact
+coordinates, raw indoor readings and sensor identifiers. The app refreshes or
+clears the summary as its data changes. Anyone who can see the widget may see
+the place and suggested time. You can remove it from your Home Screen.</p>
+<p><b>Airing timer (1.0.19).</b> When you start a timer, the app gives iOS its
+start and end times, a per-timer identifier, display language and, when available,
+the room label. iOS can show the countdown and room label on the Lock Screen or
+Dynamic Island. The app updates and ends the activity locally. It does not
+register the timer for remote push updates. You can stop the timer in the app or
+manage Live Activities in iOS settings.</p>
+<p><b>Weather speech.</b> When you tap the speaker button, the app prepares a summary of the displayed weather or, in 1.0.19,
+a detailed forecast for the day you select, and passes the text to the device's system
 text-to-speech engine. It does not record your voice or send the summary to a
 developer-operated speech service. Voice availability and any system voice downloads
 or processing follow the operating system's settings and privacy terms. Speech does
 not start automatically.</p>
 <p><b>Sharing a result.</b> In builds with sharing, you can preview and export a
 supported saved indoor reading, a daily forecast, or a drying/ventilation window as
-an image or copy its text. A card may contain the selected city's name, date and time,
+an image or copy its text. In 1.0.19 you can also share a Moon observation window.
+Its preview can show the place name, local date, time range, time zone, forecast
+cloud cover, lunar illumination and forecast update time. A card may contain the selected city's name, date and time,
 temperature, humidity, units, source and recommendation. Sensor names, notes, record
 identifiers, exact coordinates and body-temperature values are excluded from these
 card templates. Creating a preview does not upload it to us. Opening the system share
@@ -158,6 +177,13 @@ origin on the device to keep it consistent across app restarts and purchase resu
 It is cleared when usage analytics is withdrawn. Events before consent are not
 reconstructed, and restoring an existing subscription is distinguished from a new
 purchase. These fields contain no new user or transaction identifier.</p>
+<p>In 1.0.19, optional usage analytics can also report an installation environment
+such as TestFlight, production or unknown. Moon observation events can report
+the action taken, a day or night period, a cloud or light category, and a reminder
+or viewing-window outcome. These events exclude the place, exact observation
+time and coordinates. Acoustic feature events can include the setup scenario,
+calibration status and a result or failure category. They exclude audio, room
+dimensions and calibration values.</p>
 <p><b>Crash diagnostics (1.0.17 and later).</b> “Crash reports” is a separate,
 off-by-default choice. Only if you enable it, Firebase Crashlytics receives crashes and handled errors,
 stack traces, app and operating-system versions, device information and installation
