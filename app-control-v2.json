@@ -1,0 +1,8 @@
+{
+  "schema": 2,
+  "revision": 1,
+  "presence_force_control": false,
+  "timing_force_control": false,
+  "onboarding_paywall_enabled": true,
+  "onboarding_interstitial_enabled": true
+}
