@@ -14,15 +14,8 @@
 <main>
 <h1>ThermoWeather Privacy Policy</h1>
 <p class="meta">Effective 12 October 2026 · Developer: tgstartup, contact — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
-<p class="meta">Last updated 2 November 2026</p>
-<p><b>Version scope.</b> Optional usage-analytics and crash-report choices apply to
-version 1.0.17 and later. The expanded configuration, aurora map, speech and sharing
-features described here apply to version 1.0.18 builds that include them; availability
-also depends on device, region, permissions, data coverage and subscription access.
-Version 1.0.19 adds the Best Time widget, the airing timer Live Activity,
-selected-day forecast speech and Moon observation windows.
-Earlier installed builds may behave differently, as explained below. This update to
-the notice does not install an app update or enable a feature on your device.</p>
+<p class="meta">Last updated 13 November 2026</p>
+<p><b>Version scope.</b> This notice describes ThermoWeather 1.1.0 (build 34), including its Sky section, local acoustic sessions, camera and event catalogs, and optional subscription features. Earlier installations may use different defaults. In particular, versions 1.0.17–1.0.19 offered opt-in usage analytics and crash reports; new installations of 1.1.0 use the defaults described in section 3. Saved choices are preserved on update. Availability depends on the build, device, permissions, region, source coverage and subscription. Updating this notice does not update the installed app.</p>
 
 <p>ThermoWeather (the “app”, “we”) shows weather forecasts and brings together temperature values
 from external BLE sensors and manual entry. The iPhone itself does not measure room-air
@@ -30,19 +23,11 @@ or body temperature in degrees, and the app is not a medical device. The app is 
 as little as possible and to process measurements on your device unless you deliberately export a supported result.</p>
 
 <h2>1. Measurements and processing on your device</h2>
-<p><b>Microphone recordings.</b> The acoustic thermometer plays a short chirp and records its
-reflection. Audio samples are analysed on-device and discarded after the attempt; the app does not upload or include them in result sharing. The microphone is used only when you explicitly start a measurement.</p>
+<p><b>Microphone recordings and acoustic sessions.</b> The microphone is accessed after permission and an explicit measurement start. In 1.1.0 the main acoustic entry plays a short probe through the built-in speaker and records it through supported microphones, without requiring a wall. The direct measurement flow requires confirmation of local audio recording. WAV recordings, probe audio and session records can remain in the app’s local storage, including incomplete attempts. They can contain nearby speech or other background sounds as well as the probe. Session records may contain device and audio-route details, timestamps, preparation choices, geometry/calibration information and reference temperature/humidity readings, including a local reference-sensor identifier where supplied. Analysis runs on the device. These files are not automatically uploaded to the developer or to analytics, advertising or subscription services. A separate legacy echo method processes short samples without retaining them as these saved sessions. Do not record conversations or other people without appropriate permission.</p>
 <p><b>Manual body-temperature values.</b> If you enter body temperature manually, the value is handled
 only in current-session memory. It is not written to the app’s local database or app-container backup
 and is never sent to our servers, Firebase Analytics, Google AdMob, Adapty, or any other third party.</p>
-<p><b>Local ambient-temperature log.</b> External Bluetooth sensor readings and manual room-air
-entries are stored locally. A manual body-temperature entry remains available only until the app is
-closed. Saved acoustic estimates can include local quality information such as measurement time,
-uncertainty, sample counts, entered geometry and humidity assumptions. The acoustic
-calculation uses humidity you explicitly enter, or a disclosed assumption if none is
-entered; it does not substitute outdoor humidity for room humidity. A saved acoustic setup can retain calibration parameters and the room geometry
-you entered in local app preferences. You can reset the calibration in the app.
-We operate no server for storing your measurement history and do not automatically receive it.</p>
+<p><b>Local ambient-temperature log.</b> External Bluetooth sensor readings and manual room-air entries are stored locally, together with supported sensor names, notes and measurement metadata. Saved acoustic results may include quality, calibration and reference information. Humidity comes from the indoor source or explicit input identified by the feature, or a disclosed assumption; outdoor humidity is not silently substituted for indoor humidity. Manual body-temperature values remain session-only. We do not operate a server that receives your measurement history automatically.</p>
 
 <p><b>Recommendations and lunar calendar.</b> Calculations for comfort, moisture,
 ventilation and drying combine available local readings and forecast data on the device.
@@ -63,12 +48,7 @@ the room label. iOS can show the countdown and room label on the Lock Screen or
 Dynamic Island. The app updates and ends the activity locally. It does not
 register the timer for remote push updates. You can stop the timer in the app or
 manage Live Activities in iOS settings.</p>
-<p><b>Weather speech.</b> When you tap the speaker button, the app prepares a summary of the displayed weather or, in 1.0.19,
-a detailed forecast for the day you select, and passes the text to the device's system
-text-to-speech engine. It does not record your voice or send the summary to a
-developer-operated speech service. Voice availability and any system voice downloads
-or processing follow the operating system's settings and privacy terms. Speech does
-not start automatically.</p>
+<p><b>Spoken summaries and compass.</b> When you tap a speaker button, the app passes a summary of the displayed weather, thermometer or Sky information to the operating system’s text-to-speech engine. It does not record your voice or send it to a developer-operated speech service. System voices, downloads and processing follow operating-system settings and terms. The Moon/Sun orientation view uses available device heading/motion and the selected place locally; location permission alone does not provide a compass sensor. Speech does not start automatically.</p>
 <p><b>Sharing a result.</b> In builds with sharing, you can preview and export a
 supported saved indoor reading, a daily forecast, or a drying/ventilation window as
 an image or copy its text. In 1.0.19 you can also share a Moon observation window.
@@ -82,12 +62,7 @@ a receiving app or service; copying puts text on the system clipboard. Your chos
 recipient, service, clipboard settings or account synchronization may store or send
 that content under their own terms. Review the preview before sharing. We do not
 receive the recipient or a delivery confirmation.</p>
-<p><b>Reminders.</b> With notification permission, the app schedules local reminders
-for supported functions such as ventilation, drying and lunar events. Timing and
-navigation information, including an internal room/reading reference where needed,
-are given to the operating system. Content may appear on the lock screen or connected
-devices according to your system settings. Sharing a card does not schedule a reminder
-or start a timer for the recipient.</p>
+<p><b>Notifications.</b> With notification permission, the app schedules local reminders for supported ventilation/drying plans, Moon phases and observation windows, and aurora conditions. Settings can retain the chosen place and its coordinates, time zone, thresholds and local schedule. Aurora reminders are prepared from fresh Kp and weather forecasts while the app can refresh them; they are not continuous remote detection or server push alerts. Sensor threshold alerts use the selected sensor and available fresh readings. The operating system receives notification content, times and navigation identifiers; a room name or reading may appear on the lock screen. System restrictions, stale data, disconnected sensors or revoked permission may prevent checks or delivery. Optional return-offer reminders have their own in-app choice. No email or phone number is required for these local notifications.</p>
 
 <h2>2. Data shared with services</h2>
 <p><b>Location.</b> With your permission, coordinates (coarsened to forecast-level precision) are
@@ -105,17 +80,9 @@ Center. Requests disclose your IP address and technical request headers to NOAA;
 they do not include your location, sensor readings or room measurements. The app
 caches the response locally. See the
 <a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
-<p><b>Northern lights and aurora map.</b> The app obtains global aurora and
-space-weather data from NOAA SWPC. In builds using MapMap, it requests global
-space-weather metadata and an aurora probability image from api.mapmap.ai using
-our application API credential. These global requests disclose your IP address,
-technical request metadata and use of our API credential to the receiving service;
-they do not include your selected city's coordinates, room readings or sensor names.
-OpenStreetMap provides the base map and receives tile requests for the viewed area,
-as explained below. The app evaluates local viewing conditions using the selected
-place and available weather on your device. See the
-<a href="https://mapmap.ai/privacy">MapMap Privacy Policy</a> and
-<a href="https://www.noaa.gov/protecting-your-privacy">NOAA Privacy Policy</a>.</p>
+<p><b>Aurora, history and seasons.</b> NOAA SWPC supplies global space-weather and aurora-model data. Global requests disclose IP addresses and technical headers, but do not send your room readings or selected coordinates to NOAA for the global model. Supported alternative builds may also use MapMap global metadata and imagery. Historical Kp requests to GFZ contain the requested dates/index, not your location. Bundled ERA5 cloud climatology, GFZ seasonal summaries and curated historical-observation data are used locally where included. Matching these records to the selected place is local; separate weather/history requests to WeatherAPI include the place and requested dates. The app can retain forecast snapshots and source responses locally. Opening a source link connects to that source. See <a href="https://www.noaa.gov/protecting-your-privacy">NOAA privacy information</a>, <a href="https://www.gfz.de/en/data-protection">GFZ data protection</a>, and <a href="https://mapmap.ai/privacy">MapMap privacy information</a>.</p>
+<p><b>Live cameras and panoramas.</b> Choosing a camera connects to its operator and the original media player, through an embedded player, an in-app WebView or a periodically refreshed image. Operators in the current catalog include FMI, University of Calgary/AuroraMAX, IRF, Starlapland, Lights Over Lapland, Nature of Jokkmokk, UNIS/KHO, Visit Lyngenfjord, NAOJ/Subaru, CFHT, NOAA, NASA, NPS/Explore and Roundshot/Pursuit. YouTube and Twitch can provide the embedded player. The operator/player receives your IP address, requested page or video/camera identifier, device/browser metadata and playback interactions; their cookies, local storage, diagnostics and advertising practices may apply. The app may check the official page to resolve the current player when opening it. We do not rehost the stream and do not send indoor readings or location coordinates in these camera requests. Viewing a remote camera does not activate your own camera or microphone. Media viewing may keep the screen awake and use substantial mobile data. Catalog updates can add or remove supported sources; each camera identifies its source. See <a href="https://policies.google.com/privacy">Google/YouTube privacy</a>, <a href="https://www.twitch.tv/p/en/legal/privacy-notice/">Twitch privacy</a>, and the selected operator’s policy. Older road-camera features use Fintraffic Digitraffic and disclose the selected camera/preset and technical request data.</p>
+<p><b>Astronomical events and offline catalogs.</b> The app includes a translated event catalog prepared from NASA, IMO and USNO sources and a built-in camera directory. Valid updates received through Firebase Remote Config replace or supplement the supported catalog and are saved locally for later offline access. Event text is supplied as translated catalog content; the app does not send your selected dates, personal text or measurements to a translation service. Reading a cached event does not request its source website; opening its source or broadcast does. Offline catalog availability does not make live video or fresh forecasts available without a connection.</p>
 <p><b>U.S. official warnings.</b> When the selected place is in the United States
 or a U.S. territory, the app requests active warnings for that place from the
 U.S. National Weather Service (api.weather.gov, part of NOAA). The request
@@ -163,18 +130,12 @@ reduce repeated network requests. The operating system may clear this cache;
 it is removed when the app is deleted. We do not receive a copy of it.</p>
 
 <h2>3. Analytics and advertising</h2>
-<p><b>Product analytics (1.0.17 and later).</b> “Usage analytics” is off by default.
-Only if you enable it, Google Analytics for Firebase processes app interactions,
-session events, app-instance identifiers and technical device information to help us
-understand feature use and improve the app. Reports may be aggregated, but underlying
-events are not necessarily anonymous. Our custom-event filter rejects temperature values,
-body categories, exact coordinates, user notes and sensor names. Weather usage events may
-include the country returned by the weather provider, not forecast coordinates.</p>
+<p><b>Product analytics.</b> On a new installation of 1.1.0, “Usage analytics” is enabled from the first application screen without a separate onboarding prompt. You can turn it off in Settings → Privacy → Your privacy choices. Saved choices are preserved when updating, including a previous refusal; an existing completed installation without a valid saved choice does not receive a new default grant. While enabled, Google Analytics for Firebase receives app interactions, sessions, app-instance identifiers, app/OS/device information and bounded feature/subscription-funnel events. Analytics can derive approximate location from network information; our weather events may contain a country, but do not include forecast coordinates. Reports can be aggregated while the underlying events remain pseudonymous rather than anonymous. Our custom-event filter excludes temperature values, body categories, precise coordinates, notes, sensor names, spoken text and audio.</p>
 <p>With usage analytics enabled, subscription-funnel events also include the
 observed onboarding variant, its first observed light/dark appearance, the current
 appearance, and the subscription-screen trigger and outcome. Events for features such as sharing, speech and measurement attempts record bounded action/state categories, not the result content, city name, spoken text, audio or recipient. We store this bounded
 origin on the device to keep it consistent across app restarts and purchase results.
-It is cleared when usage analytics is withdrawn. Events before consent are not
+It is cleared when usage analytics is disabled. Events before collection begins are not
 reconstructed, and restoring an existing subscription is distinguished from a new
 purchase. These fields contain no new user or transaction identifier.</p>
 <p>In 1.0.19, optional usage analytics can also report an installation environment
@@ -184,24 +145,8 @@ or viewing-window outcome. These events exclude the place, exact observation
 time and coordinates. Acoustic feature events can include the setup scenario,
 calibration status and a result or failure category. They exclude audio, room
 dimensions and calibration values.</p>
-<p><b>Crash diagnostics (1.0.17 and later).</b> “Crash reports” is a separate,
-off-by-default choice. Only if you enable it, Firebase Crashlytics receives crashes and handled errors,
-stack traces, app and operating-system versions, device information and installation
-identifiers to diagnose failures. Custom diagnostic fields are restricted to technical
-states; we do not intentionally attach readings, coordinates, sensor names, notes, email
-addresses or advertising identifiers. Handled-error messages are sanitised; uncaught
-crash messages can contain runtime error details.</p>
-<p><b>Configuration and experiments.</b> Firebase Remote Config uses installation
-identifiers to deliver configuration values, including onboarding and subscription
-variants. In version 1.0.18 builds with the updated configuration flow, the app starts its measurement-related Remote
-Config fetch and saves a new experiment assignment only after “Usage analytics”
-is enabled and collection is ready. A previously saved assignment remains on the
-device if you withdraw consent; it is not a new measurement event or permission
-to send one. Operational rollback settings described below can return the usual
-behaviour without changing that saved group. Firebase components may initialise
-and read stored configuration when the app starts; this is distinct from our
-optional event collection and is not a promise that all SDK activity is absent.
-See <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+<p><b>Crash diagnostics.</b> On new installations of 1.1.0, “Crash reports” is also enabled without a separate onboarding prompt. It has a separate Settings switch and saved choices are preserved on update. While enabled, Firebase Crashlytics receives crash and handled-error reports, stack traces, app/OS/device details and installation identifiers. Custom fields are limited to technical states; we do not intentionally attach readings, coordinates, sensor names, notes, audio, email addresses or advertising identifiers. Handled-error text is sanitized; uncaught crashes can still contain runtime error details.</p>
+<p><b>Configuration, catalogs and experiments.</b> Firebase Remote Config uses installation identifiers and technical information to deliver operational controls, camera/event catalogs and onboarding/subscription configuration. In 1.1.0, the app’s Remote Config fetch is gated by enabled usage analytics and foreground activity, normally with an hour between fetches; opening catalogs can trigger a due refresh, and foreground update notifications can refresh supported controls. Cached or bundled catalogs remain available when collection is disabled or the network fails. Firebase initialization and previously cached settings are distinct from optional interaction-event collection. Existing experiment assignments can remain locally after analytics is disabled. See <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
 <p><b>Earlier 1.0.17 builds.</b> Fetching Remote Config and saving a variant could
 occur independently of the optional analytics choice. Sending our interaction
 and experiment-exposure events required “Usage analytics”. These earlier
@@ -246,7 +191,7 @@ fraud. Personalisation depends on your choices and applicable requirements. Wher
 required, Google UMP presents advertising privacy choices; requests are gated on its
 permission to request ads. If you decline personalisation, limited or non-personalised
 ads may still involve data processing, or ads may be unavailable. Tracking permission
-is requested through Apple's App Tracking Transparency prompt. Plus removes in-app ads.
+is requested through Apple's App Tracking Transparency prompt. Plus removes ads placed by ThermoWeather; independent third-party camera players may still show their own ads.
 Subscription processing continues; optional analytics and diagnostics follow your
 separate choices in 1.0.17 and later. Advertising choices and ATT do not grant
 permission for these optional streams. See
@@ -263,16 +208,8 @@ to support, we process it as support correspondence. QA analytics is labelled as
 test traffic and separated from production reporting.</p>
 
 <h2>4. Legal bases (GDPR)</h2>
-<p>For 1.0.17 and later, we rely on your consent (Art. 6(1)(a)) for optional
-usage analytics and crash-report sharing. You can decline or withdraw each
-choice independently, without losing app features or Plus. We do not switch
-these optional streams to “legitimate interests” when you decline.</p>
-<p>Core features you request, such as forecasts and purchase validation, rely
-on contract performance where applicable (Art. 6(1)(b)); required billing and
-record-keeping may rely on legal obligations (Art. 6(1)(c)). Advertising and
-tracking use separate consent where required. Delivering configuration does
-not by itself establish that participation in an A/B experiment is necessary
-to provide the app.</p>
+<p>The legal basis depends on the processing and applicable law. Requested forecasts, subscription validation and other necessary service functions may rely on performance of a contract (GDPR Article 6(1)(b)); required records may rely on legal obligations (Article 6(1)(c)). Service reliability and product improvement may rely on legitimate interests (Article 6(1)(f)) only where applicable law permits and those interests are not overridden by your rights. You can object to that processing and disable analytics or crash reporting independently without losing Plus or core features. Advertising, tracking and any analytics or device-storage processing that requires prior consent remain subject to that requirement (Article 6(1)(a), where applicable). A default-enabled switch, continued app use or this notice is not a declaration of user consent and does not replace legally required consent.</p>
+<p>Versions 1.0.17–1.0.19 used separate opt-in choices for usage analytics and crash reports. This revision accurately describes the 1.1.0 defaults; it does not retroactively change earlier choices or legal bases. Advertising consent and ATT are separate from analytics/diagnostic settings.</p>
 <p><b>Earlier versions.</b> In 1.0.16 and earlier, analytics services initialised
 at startup and release builds enabled crash reporting without separate in-app
 switches. The earlier notice described crash/usage statistics under legitimate
@@ -280,13 +217,8 @@ interests (Art. 6(1)(f)). The new choices do not apply retroactively; you can
 contact us about earlier processing using the rights described in section 6.</p>
 
 <h2>5. Retention and deletion</h2>
-<p><b>On your device.</b> Microphone samples are discarded after analysis. Manual
-body-temperature values last only for the current session. Ambient history is limited to the most recent 500 stored readings and remains
-until removed by that limit, by you, or by app deletion. Local preferences, saved
-places and forecast caches can remain between launches; caches can be refreshed
-or cleared by the app or operating system. App deletion removes its local data and cache;
-offloading the app may preserve data, and operating-system backups are managed through
-your Apple settings.</p>
+<p><b>On your device.</b> Direct acoustic sessions retain their recordings and session/reference metadata until you delete the session or the app; they are not subject to the ordinary 500-reading limit. The iOS session directory is excluded from operating-system backup. Exported copies are separate. Legacy echo samples are discarded after analysis. Manual body-temperature values last only for the current session. Ambient history keeps up to the most recent 500 readings. Local preferences, saved places, calibration data, notification settings, accepted catalogs and caches can remain between launches. Deleting the app removes its local data; offloading can preserve it, and other system backups follow your Apple settings.</p>
+<p><b>Acoustic exports.</b> If you explicitly export an acoustic session, a ZIP can contain the original WAV recordings, reference readings, device/audio details and session/calibration metadata, including a reference-sensor identifier if present. Background speech can be audible in the recording. Review what you share. Nothing is sent to the developer automatically; if you choose to send a report to support, we receive and use it to investigate your request. In-app session deletion cannot recall copies held by a recipient. Temporary export files can remain in the device cache until removed by the app or operating system.</p>
 <p><b>Exports and diagnostic files.</b> Share images are temporary local cache
 files. When a later image export is prepared, inactive files older than 24 hours
 are eligible for cleanup; files still in use by the share operation are retained
@@ -324,23 +256,13 @@ provider logs or promise their immediate removal when the app is uninstalled.</p
 related follow-up, dispute or legal obligation. We delete or anonymise identifiable
 information when it is no longer needed for those purposes.</p>
 
-<h2>6. Your choices and rights</h2>
+<h2 id="privacy-choices">6. Your choices and rights</h2>
 <p>Advertising choices can be reopened in app Settings → “Privacy settings” when
 the provider requires that option. Tracking permission can be changed in iOS Settings →
 Privacy &amp; Security → Tracking. Location, microphone and Bluetooth permissions can be
 revoked in iOS Settings. You can choose a city manually without location permission.</p>
-<p>In 1.0.17 and later, open Settings → Privacy → “Your privacy choices” to change
-“Usage analytics” and “Crash reports”. Both are off until you allow them; choosing
-to continue without optional sharing leaves them off. The initial choice also applies after updating from an older
-version if you have not yet made a choice. The app and Plus work when you decline.</p>
-<p><b>Choice presentation in updated builds.</b> New installations receive a
-compact choice at the start of onboarding: “Allow both and continue”, “Continue
-without sharing” or “Customize”. Custom settings let you choose analytics and
-crash reports independently; merely opening or closing them grants nothing.
-Already completed onboarding is not repeated. If an older installation has no
-saved choice, a dismissible invitation on the home screen links to settings;
-dismissing it does not enable either optional stream. Existing saved choices
-are preserved.</p>
+<p>Open Settings → Privacy → Your privacy choices to change “Usage analytics” and “Crash reports” independently. On new 1.1.0 installations both start enabled, with no separate analytics/crash-report onboarding request. Turning them off does not require a subscription and does not remove core features. Saved choices on existing installations are preserved.</p>
+<p><b>Other controls.</b> Notification permission, notification categories, advertising choices and iOS tracking permission are separate controls. Delete a saved acoustic session from its session controls to remove the local recording and metadata. You can remove a Home Screen widget and stop a timer or Live Activity. System and recipient settings govern data already exported or displayed outside the app.</p>
 <p>Turning a choice off stops future optional sharing. Events that occur while
 usage analytics is off are not saved by the app for later replay. Withdrawal
 does not automatically erase information already received by providers; their
