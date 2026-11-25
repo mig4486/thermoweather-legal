@@ -14,7 +14,7 @@
 <main>
 <h1>ThermoWeather Terms of Use</h1>
 <p class="meta">Effective 11 October 2026 · Developer: tgstartup — <a href="mailto:tgstartup@icloud.com">tgstartup@icloud.com</a></p>
-<p class="meta">Last updated 13 November 2026</p>
+<p class="meta">Last updated 25 November 2026</p>
 
 <p>These terms describe the ThermoWeather service and subscriptions provided by
 tgstartup. The licence to use the iOS app is governed by
@@ -22,24 +22,37 @@ tgstartup. The licence to use the iOS app is governed by
 These service terms supplement that agreement and do not replace it or override
 Apple's applicable terms or your mandatory consumer rights.</p>
 
-<p>This revision describes supported ThermoWeather features, including additions
-available in version 1.1.0 (build 34). Availability depends on the installed build, device,
-region, permissions, data coverage and Plus access. Updating these web terms does
-not install or activate features. Changes apply prospectively from publication,
-subject to any notice or consent required by law.</p>
+<p>This revision describes existing ThermoWeather features and additions prepared for
+version 1.1.2 (build 37). Availability depends on the installed build, device, region,
+permissions, data coverage and Plus access. The notification pilots described below
+are available only in configured test environments. Changes to these terms apply
+prospectively from publication, subject to any notice or consent required by law.</p>
 
 <h2>1. The service</h2>
-<p>ThermoWeather shows third-party weather forecasts and brings together temperature values from
-external Bluetooth sensors and manual entry. The acoustic method and household-signs
-guide provide experimental or approximate room-air estimates only. The iPhone itself does not expose
-a sensor that measures room-air or body temperature in degrees. Supported features
-also include weather maps, air-quality and other environmental information,
-ventilation and outdoor-drying recommendations, a lunar calendar and polar-aurora
-viewing conditions. The app has no user account or social feed requirement.</p>
+<p>ThermoWeather shows third-party weather forecasts and brings together temperature and humidity
+values from compatible Bluetooth sensors, Wi-Fi sensors connected through Home Assistant,
+and manual entries. The acoustic method and household-signs guide provide experimental or
+approximate room-air estimates. Supported features also include weather maps, air quality,
+ventilation and indoor or outdoor drying recommendations, measurement history, a lunar calendar,
+solar-day calculations and polar-aurora viewing conditions. Core features are available without
+a ThermoWeather account.</p>
+<p><b>Home Assistant and authorized devices.</b> Connect only sensors and servers you own or
+have permission to use. Wi-Fi sensor access requires a compatible Home Assistant server,
+authorized access, an HTTPS connection and suitable temperature and humidity entities.
+Use the Home Assistant or device-vendor terms for your server and connected equipment.
+If your server relies on a vendor service such as Smart Life or Tuya, that integration must
+work in Home Assistant for ThermoWeather to receive its readings.</p>
+<p><b>Dictation and Siri.</b> Voice input fills an editable manual reading from the
+values you dictate. Verify the values, temperature units and any room note before saving.
+In supported iOS versions, you can choose one sensor for a Siri shortcut that reports its last
+available reading and its time. The result can be outdated if the sensor or server has stopped
+reporting. Siri and speech recognition depend on Apple's availability, the device and language
+support. If Apple’s online recognition is needed, the app asks before sending audio for that
+dictation request. The <a href="privacy_policy.html">Privacy Policy</a> describes what is shared.</p>
 
 <div class="warn">
 <b>2. Accuracy and intended use.</b> Forecasts are probabilistic third-party estimates. Room
-temperature should come from an external BLE sensor or a separate thermometer entered manually. The
+temperature should come from a compatible external sensor or a separate thermometer entered manually. The
 acoustic method is experimental and is not a calibrated thermometer; the household guide gives rough estimates
 only, and the iPhone heat indicator is not air temperature. The app is <b>not a medical device</b> and
 does not measure body temperature with iPhone sensors: body values are entered manually and do not
@@ -50,7 +63,7 @@ life, health or property.
 <p><b>Acoustic measurement.</b> The main 1.1.0 flow uses the built-in speaker and supported microphones, without requiring a wall, and records a local measurement session. A legacy echo method, where available, is separate. Device support, audio routing, preparation, geometry, noise, humidity and calibration affect whether a valid result can be obtained. Accuracy on iPhone has not been established as a calibrated room thermometer; any displayed uncertainty is a model estimate, not a validated error bound. The flow may return recordings, quality results or an unsupported/invalid result rather than a temperature. Use an external thermometer for a reliable reference. Local audio storage and optional export are described in the Privacy Policy.</p>
 <p><b>Ventilation, moisture and drying.</b> Recommendations are estimates based on
 available measurements and forecasts. Indoor recommendations require appropriate
-room data; a weather forecast alone does not measure your room. A suggested drying
+data for the selected room or sensor; a weather forecast alone does not measure your room. A suggested drying
 window does not guarantee when laundry will dry, and ventilation guidance does not
 diagnose or remediate mold or replace building, health or safety advice. Recheck
 conditions before acting, especially for future intervals.</p>
@@ -62,10 +75,21 @@ available aurora map or weather forecast for that night. A map for the nearest t
 is not a forecast for every selected date. Lunar events and times are estimates for
 the selected place. Official warning feeds have their own coverage and update delays;
 check the responsible authority for urgent decisions.</p>
-<p><b>Timers, threshold alerts and aurora reminders.</b> Delivery depends on permission, operating-system scheduling and device operation. Threshold alerts require the selected supported sensor and fresh readings; a disconnected sensor is not continuous monitoring. Indoor recommendations cannot establish current room conditions from missing or stale measurements. Aurora reminders use forecast conditions refreshed while the app is active and schedule local notifications; they are not a continuous storm-detection or emergency service. A timer does not operate a window, fan or appliance.</p>
+<p><b>Timers, local threshold alerts and Sky reminders.</b> Delivery depends on notification permission,
+iOS scheduling and device operation. Temperature, humidity and sensor status alerts rely on the
+selected source and the data it reports. Outside-temperature thresholds are checked when the app receives
+fresh weather data. A lost signal can prevent a check. Sky reminders use the available event catalog
+or forecast data and follow supported reminder and quiet-hour settings. Check current conditions
+and official alerts before taking action. Timers and notifications provide information for you to act on.</p>
+<p><b>Server notification pilots.</b> The configured Home Assistant pilot can send a Wi-Fi
+threshold or sensor-status notification through Cloudflare and Firebase Cloud Messaging.
+Delivery requires an active and authorized test installation, a running agent and a reachable
+Home Assistant server. Pilots can stop or change during testing. Scheduled outdoor-temperature
+checks are still under development. Threshold notifications and weather warnings are
+informational, and they should not be your only source for urgent, health or property decisions.</p>
 
 <p><b>Aurora history and seasonal planning.</b> Kp is a planetary activity index, not a guaranteed local sighting probability. NOAA map percentages describe the model at its stated time and location, rather than a personal chance of seeing aurora. Historical observations and seasonal cloud/darkness/activity summaries can help compare places and months, but do not predict that an event will repeat. Long-range activity outlooks and weather forecasts have different coverage and uncertainty; missing dates are not filled by treating current conditions as future observations.</p>
-<p><b>Astronomical events and cameras.</b> Event dates, local visibility and translations are informational and may be corrected through catalog updates. A global event is not necessarily visible from your location, and an announced event does not guarantee a live broadcast. Do not look directly at the Sun through unfiltered optics or without appropriate solar-viewing protection. Camera availability, image freshness, stream quality and operator schedules vary. Still images and panoramas are identified separately from continuous video. Sources may stop, change their player or display independent advertising. Plus does not guarantee uninterrupted access to third-party media.</p>
+<p><b>Astronomical events, guide and cameras.</b> Solar-day calculations, event dates and local visibility are estimates based on the selected date and place. The Sky guide's constellation and comet diagrams are educational illustrations. Catalog corrections and viewing conditions can change what you see. Do not look directly at the Sun through unfiltered optics or without appropriate solar-viewing protection. Camera availability, image freshness, stream quality and operator schedules vary. Still images and panoramas are identified separately from continuous video. Sources may stop, change their player or display independent advertising. Plus does not guarantee uninterrupted access to third-party media.</p>
 <h2>3. ThermoWeather Plus subscription</h2>
 <p>Plus removes ads placed by ThermoWeather and unlocks the features identified as Plus in the app.
 The purchase screen identifies the selected plan, included benefits, subscription
@@ -116,6 +140,11 @@ export. A drying/ventilation card does not start a timer or reminder for its rec
 or transfer a Plus entitlement. Sharing a Plus-only recommendation requires access
 when the card is prepared and sent. The receiving app and any recipient handle
 exported copies under their own terms; deleting a local card cannot recall them.</p>
+<p><b>Measurement history and CSV.</b> In supported builds you can export the eligible
+readings in the current history selection. Review the time zone, units, source and whether
+each entry is a measurement or estimate before comparing or sharing it. CSV timestamps
+use UTC. A CSV is a copy of the selected data at export time. You are responsible for
+choosing the recipient or storage location when you use the system share sheet.</p>
 <p>Acoustic session exports can contain raw audio, device/session metadata and reference readings. Export only recordings you are entitled to share. The app does not automatically upload these files.</p>
 <p>No reverse engineering beyond what law permits, no circumventing subscription gates, no unlawful
 use, no scraping of third-party weather data in breach of their terms.</p>
